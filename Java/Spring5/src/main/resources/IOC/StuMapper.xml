@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="Stu" class="IOC.Collect.Stu">
+<!--        数组类型属性注入-->
+        <property name="course">
+            <array>
+                <value>Java</value>
+                <value>Nodejs</value>
+                <value>MySQL</value>
+            </array>
+        </property>
+        <!--        List集合类型属性注入-->
+        <property name="list">
+            <list>
+                <value>Java</value>
+                <value>Nodejs</value>
+                <value>MySQL</value>
+            </list>
+        </property>
+        <!--        Map集合类型属性注入-->
+        <property name="map">
+            <map>
+                <entry key="Java" value="Java"></entry>
+                <entry key="PHP" value="Java"></entry>
+                <entry key="Nodejs" value="Java"></entry>
+            </map>
+        </property>
+        <!--        Set集合类型属性注入-->
+        <property name="set">
+            <set>
+                <value>Java</value>
+                <value>Nodejs</value>
+                <value>MySQL</value>
+            </set>
+        </property>
+    </bean>
+</beans>

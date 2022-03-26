@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    开启组件扫描-->
+<!--        扫描单个包-->
+        <context:component-scan base-package="Annotation"></context:component-scan>
+<!--&lt;!&ndash;        扫描多个包&ndash;&gt;-->
+<!--        <context:component-scan base-package="Annotation,AutoWrite"></context:component-scan>-->
+<!--&lt;!&ndash;            扫描上层目录&ndash;&gt;-->
+<!--        <context:component-scan base-package="java"></context:component-scan>-->
+
+
+<!--开启组件扫描中的细节-->
+<!--细节1：设置扫描那些内容,扫描带相应注解的类-->
+<!--
+use-default-filters="false" 表示现在不使用默认的filter,自己配置filter。
+
+设置扫描那些内容,扫描带相应注解的类
+<context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+
+-->
+<!--<context:component-scan base-package="Annotation" use-default-filters="false">-->
+<!--    <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
+<!--</context:component-scan>-->
+
+<!--细节2：设置不去扫描那些带有相应注解的类-->
+<!--
+    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+-->
+<!--<context:component-scan base-package="Annotation" use-default-filters="false">-->
+<!--    <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
+<!--</context:component-scan>-->
+
+
+</beans>

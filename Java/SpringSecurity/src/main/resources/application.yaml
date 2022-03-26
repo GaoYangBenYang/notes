@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+# 配置mybatis规则、使用MyBatisPlus则此项配置无效
+mybatis:
+  #  config-location: classpath:mybatis/mybatis-config.xml   SpringBoot全局配置文件配置mybatis和mybatis属性配置文件二选一
+  mapper-locations: classpath:mapper/*.xml
+  configuration:  # 指定mybatis全局配置文件中的相关配置项
+    map-underscore-to-camel-case: true #驼峰命名
+
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sql
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+#  security:
+#    user:
+#      name: gy
+#      password: 123
+
+
+
+

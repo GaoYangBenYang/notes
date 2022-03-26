@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<!--接口的全类名-->
+<mapper namespace="com.gy.Dao.EmployeeMapper">
+
+<!--    namespae:名称空间
+id:唯一标识
+resultType:返回值类型
+#{id}:从传递过来的参数中取出id值
+-->
+    <select id="selectEmp" resultType="com.gy.Pojo.Employee">
+        select id,last_name,gender,email from table_employee where id = #{id}
+    </select>
+
+    <resultMap id="emp" type="com.gy.Pojo.Employee">
+        <id column="id" property="id"></id>
+        <result column="last_name" property="last_name"></result>
+        <result column="gender" property="gender"></result>
+        <result column="email" property="email"></result>
+    </resultMap>
+
+    <select id="selectEmpById" resultMap="emp">
+        select id,last_name,gender,email from table_employee where id = #{id}
+    </select>
+</mapper>

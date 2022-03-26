@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--1.创建Usr对象   id 别名     class 类路径-->
+    <bean id="User" class="Beans.User">
+    <!-- 没有进行依赖注入        -->
+    </bean>
+
+
+    <!--2.set方法注入属性（依赖注入）-->
+    <bean id="book" class="IOC.Dao.Book">
+        <!-- 使用Property完成依赖注入
+             name:类属性名称
+             value: 向属性注入的值
+         -->
+        <property name="bname" value="十万个为什么"></property>
+        <property name="bauthor" value="十万"></property>
+    </bean>
+
+    <!--3.有参构造器注入属性（依赖注入）-->
+    <bean id="orders" class="IOC.Service.Orders">
+<!--        有参构造器-->
+        <constructor-arg name="oname" value="榴莲酥"></constructor-arg>
+        <constructor-arg name="address" value="光谷百货大楼"></constructor-arg>
+
+        <!--        有参构造器索引取值-->
+<!--        <constructor-arg index="0" value="光谷百货大楼"></constructor-arg>-->
+    </bean>
+
+
+    <!--4.p名称空间注入属性（依赖注入）-->
+    <bean id="book" class="IOC.Dao.Book" p:bname="十万个为什么" p:bauthor="十万">
+    </bean>
+
+    <!--5.注入Null属性值（依赖注入）-->
+    <bean id="book" class="IOC.Dao.Book" >
+        <property name="bname" >
+            <null></null>
+        </property>
+    </bean>
+
+    <!--6.注入包含特殊符号的属性值（依赖注入）
+        1.将特殊符号进行转译
+        2.将特殊符号内容写入CDATA
+    -->
+    <bean id="book" class="IOC.Dao.Book" >
+        <property name="bname" >
+            <value><![CDATA[<<南京>>]]></value>
+        </property>
+    </bean>
+
+    <!--7.注入外部bean属性值（依赖注入）
+       1.name属性：类里面属性名称
+       2.ref属性：创建userDao对象，bean标签的id值
+   -->
+    <bean id="book" class="IOC.Dao.Book" >
+        <property name="OrdersDao" ref="orders" ></property>
+    </bean>
+
+
+</beans>

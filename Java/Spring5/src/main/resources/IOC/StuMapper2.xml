@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+<!--    1.进行xml文件配置 设置标签util空间-->
+<!--    xmlns:util="http://www.springframework.org/schema/util"-->
+<!--    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd-->
+
+<!--    2.提取list集合公共部分-->
+        <util:list id="bookList">
+            <value>Java</value>
+            <value>Nodejs</value>
+            <value>Vue</value>
+        </util:list>
+<!--    3.属性注入-->
+        <bean id="Book" class="IOC.Collect.Book">
+            <property name="list" ref="bookList" ></property>
+            <property name="bname" value=""></property>
+        </bean>
+
+</beans>
